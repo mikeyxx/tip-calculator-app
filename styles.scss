@@ -1,0 +1,324 @@
+$Strong-cyan: hsl(172, 67%, 45%);
+$Very-dark-cyan: hsl(183, 100%, 15%);
+$Darker-grayish-cyan: hsl(186, 14%, 43%);
+$Dark-grayish-cyan: hsl(184, 14%, 56%);
+$Light-grayish-cyan: hsl(185, 41%, 84%);
+$Lighter-grayish-cyan: hsl(189, 41%, 97%);
+$White: hsl(0, 0%, 100%);
+
+html {
+    box-sizing: border-box;
+    font-size: 100%;
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+.sr-only {
+    border: 0 !important;
+	clip: rect(1px, 1px, 1px, 1px) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	padding: 0 !important;
+	position: absolute !important;
+	width: 1px !important;
+	white-space: nowrap !important; 
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Space Mono", sans-serif;
+    text-align: center;
+    background-color: $Light-grayish-cyan;
+}
+
+header {
+    height: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    font-size: .7rem;
+    color: $Darker-grayish-cyan;
+    margin-block-end: 0.7rem;
+}
+
+.container {
+    margin: auto;
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+    text-align: left;
+    background-color: $White;
+    padding: 30px 0 30px 0;
+}
+
+section {
+    max-width: 16.5rem;
+    margin: auto;
+}
+
+.input-bill {
+    position: relative;
+}
+
+input {
+    width: 100%;
+    padding: 5px 10px;
+    text-align: right;
+    font-family: "Space Mono", sans-serif;
+    background-color: $Lighter-grayish-cyan;
+    border: none;
+    border-radius: 2.3px;
+    font-size: 24px;
+    color: $Very-dark-cyan;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+input:focus {
+    outline: 2px solid $Strong-cyan;
+}
+
+.dollar-icon {
+    position: absolute;
+    top: 2px;
+    left: 15px;
+}
+
+.five-percent {
+    grid-area: five-percent;
+    background-color: $Very-dark-cyan;
+    color: $White;
+}
+
+.ten-percent {
+    grid-area: ten-percent;
+    background-color: $Very-dark-cyan;
+    color: $White;
+}
+
+.fifteen-percent {
+    grid-area: fifteen-percent;
+    background-color: $Strong-cyan;
+    color: $Very-dark-cyan;
+}
+
+.twenty-five-percent {
+    grid-area: twenty-five-percent;
+    background-color: $Very-dark-cyan;
+    color: $White;
+}
+
+.fifty-percent {
+    grid-area: fifty-percent;
+    background-color: $Very-dark-cyan;
+    color: $White;
+}
+
+.custom-btn {
+    grid-area: custom-btn;
+    color: $Darker-grayish-cyan;
+  
+}
+
+.tip-percentage-select {
+    margin: 2rem 0 2rem 0
+}
+
+.btn {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas:
+    "five-percent ten-percent"
+    "fifteen-percent twenty-five-percent"
+    "fifty-percent custom-btn";
+    gap: 12px;
+}
+
+.btn-no {
+    font-family: "Space Mono", sans-serif;
+    font-size: 19px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    padding: 3px 0 3px 0;
+    cursor: pointer;
+}
+
+button:active {
+    position: relative;
+    top: 1px;
+}
+
+.custom-btn {
+   padding-right: 13px;
+   cursor: auto;
+}
+
+.persons {
+    margin-bottom: 1.8rem;
+    position: relative;
+}
+
+.persons span {
+    font-size: .7rem;
+    font-weight: bold;
+    position: absolute;
+    top: -27px;
+    right: 3px;
+    display: none;
+    // opacity: 0;
+    // height: 0;
+}
+
+
+.invalid {
+    outline: 2px solid red;
+}
+
+.invalid span {
+    display: block;
+    color: red;
+    // opacity: 1;
+    // height: auto;
+}
+
+.invalid input {
+    outline: 2px solid red;
+}
+
+.input-people {
+    position: relative;
+}
+
+
+.person-icon {
+    position: absolute;
+    top: 12px;
+    left: 15px;
+}
+
+.tip-amount {
+    background-color: $Very-dark-cyan;
+    border-radius: .7rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    h2 {
+        color: $Lighter-grayish-cyan;
+    }
+}
+
+.per-person {
+    color: $Darker-grayish-cyan;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.amount-per-person {
+    display: flex;
+    justify-content: space-between;
+    padding-top: .9rem;
+}
+
+.total-persons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 1.2rem;
+}
+
+.value-calculator {
+    color: $Strong-cyan;
+    font-size: 31px;
+    font-weight: bold;
+}
+
+.reset-btn {
+    height: 2.4rem;
+    background-color: $Strong-cyan;
+    border: none;
+    border-radius: 3px;
+    font-weight: bold;
+    color: $Very-dark-cyan;
+    font-size: 14px;
+    margin-top: 1.5rem;
+    cursor: pointer;
+}
+
+@media (min-width: 490px) {
+    .five-percent {
+        grid-area: five-percent;
+        background-color: $Very-dark-cyan;
+        color: $White;
+    }
+    
+    .ten-percent {
+        grid-area: ten-percent;
+        background-color: $Very-dark-cyan;
+        color: $White;
+    }
+    
+    .fifteen-percent {
+        grid-area: fifteen-percent;
+        background-color: $Strong-cyan;
+        color: $Very-dark-cyan;
+    }
+    
+    .twenty-five-percent {
+        grid-area: twenty-five-percent;
+        background-color: $Very-dark-cyan;
+        color: $White;
+    }
+    
+    .fifty-percent {
+        grid-area: fifty-percent;
+        background-color: $Very-dark-cyan;
+        color: $White;
+    }
+    
+    .custom-btn {
+        grid-area: custom-btn;
+        color: $Darker-grayish-cyan;
+      
+    }
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 40rem;
+        border-radius: 1.5rem;
+    }
+    .tip-amount {
+        width: 100%;
+    }
+    .btn {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-areas:
+        "five-percent ten-percent fifteen-percent"
+        "twenty-five-percent fifty-percent custom-btn";
+        gap: 12px;
+    }
+    .btn-no {
+        font-size: 15px;
+    }
+    .persons {
+        margin-bottom: 0;
+    }
+    .reset-btn {
+        margin-block-start: 6rem;
+    }
+}
+
+.attribution { font-size: 11px; text-align: center; margin: 12px 0;}
+.attribution a { color: hsl(228, 45%, 44%); }
