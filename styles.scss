@@ -34,7 +34,7 @@ html {
 body {
     min-height: 100vh;
     font-family: "Space Mono", sans-serif;
-    text-align: center;
+    // text-align: center;
     background-color: $Light-grayish-cyan;
 }
 
@@ -45,39 +45,46 @@ header {
     align-items: center;
 }
 
-h2 {
+.sec-title {
     font-size: .7rem;
     color: $Darker-grayish-cyan;
-    margin-block-end: 0.7rem;
+    font-weight: bold;
+}
+
+
+li {
+    list-style: none;
 }
 
 .container {
+    max-width: 375px;
     margin: auto;
     border-top-left-radius: 1.5rem;
     border-top-right-radius: 1.5rem;
-    text-align: left;
+    // text-align: left;
     background-color: $White;
-    padding: 30px 0 30px 0;
+    padding: 30px  30px;
 }
 
-section {
-    max-width: 16.5rem;
-    margin: auto;
-}
-
-.input-bill {
+.input-wrap {
     position: relative;
+}
+
+.dollar-icon {
+    position: absolute;
+    top: 10px;
+    left: 9px;
 }
 
 input {
     width: 100%;
-    padding: 5px 10px;
+    height: 2.4rem;
+    padding: 0px 10px;
     text-align: right;
     font-family: "Space Mono", sans-serif;
     background-color: $Lighter-grayish-cyan;
     border: none;
-    border-radius: 2.3px;
-    font-size: 24px;
+    border-radius: 3px;
     color: $Very-dark-cyan;
     font-size: 20px;
     font-weight: bold;
@@ -85,12 +92,6 @@ input {
 
 input:focus {
     outline: 2px solid $Strong-cyan;
-}
-
-.dollar-icon {
-    position: absolute;
-    top: 2px;
-    left: 15px;
 }
 
 .five-percent {
@@ -129,8 +130,24 @@ input:focus {
   
 }
 
+.people-wrap {
+    position: relative;
+}
+
+.person-icon {
+    position: absolute;
+    top: 10px;
+    left: 9px;
+}
+
 .tip-percentage-select {
-    margin: 2rem 0 2rem 0
+    margin: 1.7rem 0 1.7rem 0;
+    h2 {
+        font-size: .7rem;
+        color: $Darker-grayish-cyan;
+        font-weight: bold;
+        margin-block-end: 1rem;
+    }
 }
 
 .btn {
@@ -147,37 +164,43 @@ input:focus {
 .btn-no {
     font-family: "Space Mono", sans-serif;
     font-size: 19px;
+    width: 100%;
+    height: 2.2rem;
     font-weight: bold;
     border: none;
     border-radius: 4px;
-    padding: 3px 0 3px 0;
     cursor: pointer;
 }
 
+.tip-value {
+    margin-block-end: 2rem;
+}
+
 button:active {
-    position: relative;
-    top: 1px;
+    transform: translateY(2px);
+    
+}
+
+button:focus-visible {
+    outline: 2px solid $Strong-cyan;
 }
 
 .custom-btn {
-   padding-right: 13px;
    cursor: auto;
 }
 
-.persons {
-    margin-bottom: 1.8rem;
+.input-people {
     position: relative;
 }
 
-.persons span {
+.persons .span {
     font-size: .7rem;
     font-weight: bold;
     position: absolute;
-    top: -27px;
+    top: 5px;
     right: 3px;
+    font-family: "Space Mono", sans-serif;
     display: none;
-    // opacity: 0;
-    // height: 0;
 }
 
 
@@ -185,26 +208,13 @@ button:active {
     outline: 2px solid red;
 }
 
-.invalid span {
+.invalid + .span {
     display: block;
     color: red;
-    // opacity: 1;
-    // height: auto;
 }
 
 .invalid input {
     outline: 2px solid red;
-}
-
-.input-people {
-    position: relative;
-}
-
-
-.person-icon {
-    position: absolute;
-    top: 12px;
-    left: 15px;
 }
 
 .tip-amount {
@@ -215,6 +225,7 @@ button:active {
     flex-direction: column;
     h2 {
         color: $Lighter-grayish-cyan;
+        font-size: .7rem;
     }
 }
 
@@ -256,50 +267,24 @@ button:active {
 }
 
 @media (min-width: 490px) {
-    .five-percent {
-        grid-area: five-percent;
-        background-color: $Very-dark-cyan;
-        color: $White;
-    }
-    
-    .ten-percent {
-        grid-area: ten-percent;
-        background-color: $Very-dark-cyan;
-        color: $White;
-    }
-    
-    .fifteen-percent {
-        grid-area: fifteen-percent;
-        background-color: $Strong-cyan;
-        color: $Very-dark-cyan;
-    }
-    
-    .twenty-five-percent {
-        grid-area: twenty-five-percent;
-        background-color: $Very-dark-cyan;
-        color: $White;
-    }
-    
-    .fifty-percent {
-        grid-area: fifty-percent;
-        background-color: $Very-dark-cyan;
-        color: $White;
-    }
-    
-    .custom-btn {
-        grid-area: custom-btn;
-        color: $Darker-grayish-cyan;
-      
-    }
     .container {
+        max-width: 1000px;
         display: flex;
-        flex-wrap: wrap;
-        width: 40rem;
+        gap: 8rem;
         border-radius: 1.5rem;
     }
+
     .tip-amount {
         width: 100%;
     }
+
+    .tip-percentage-select {
+        margin: 2.3rem 0 2.3rem 0;
+        h2 {
+            font-size: 1rem;
+        } 
+    }
+
     .btn {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -307,16 +292,35 @@ button:active {
         grid-template-areas:
         "five-percent ten-percent fifteen-percent"
         "twenty-five-percent fifty-percent custom-btn";
-        gap: 12px;
     }
     .btn-no {
+        font-size: 25px;
+        height: 2.5rem;
+    }
+
+    .sec-title {
+        font-size: 1rem;
+    }
+
+    .tip-amount h2 {
+        font-size: 1rem;
+    }
+    
+    .per-person {
         font-size: 15px;
     }
-    .persons {
-        margin-bottom: 0;
+
+    .total-persons {
+        padding-top: 3rem;
     }
+
+    .persons .span {
+        top: 1px;
+        font-size: 1rem;
+    }
+
     .reset-btn {
-        margin-block-start: 6rem;
+        margin-block-start: 8rem;
     }
 }
 
