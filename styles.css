@@ -29,7 +29,6 @@ html {
 body {
   min-height: 100vh;
   font-family: "Space Mono", sans-serif;
-  text-align: center;
   background-color: #c5e4e7;
 }
 
@@ -46,40 +45,44 @@ header {
           align-items: center;
 }
 
-h2 {
+.sec-title {
   font-size: .7rem;
   color: #5e7a7d;
-  -webkit-margin-after: 0.7rem;
-          margin-block-end: 0.7rem;
+  font-weight: bold;
+}
+
+li {
+  list-style: none;
 }
 
 .container {
+  max-width: 375px;
   margin: auto;
   border-top-left-radius: 1.5rem;
   border-top-right-radius: 1.5rem;
-  text-align: left;
   background-color: white;
-  padding: 30px 0 30px 0;
+  padding: 30px  30px;
 }
 
-section {
-  max-width: 16.5rem;
-  margin: auto;
-}
-
-.input-bill {
+.input-wrap {
   position: relative;
+}
+
+.dollar-icon {
+  position: absolute;
+  top: 10px;
+  left: 9px;
 }
 
 input {
   width: 100%;
-  padding: 5px 10px;
+  height: 2.4rem;
+  padding: 0px 10px;
   text-align: right;
   font-family: "Space Mono", sans-serif;
   background-color: #f4fafa;
   border: none;
-  border-radius: 2.3px;
-  font-size: 24px;
+  border-radius: 3px;
   color: #00494d;
   font-size: 20px;
   font-weight: bold;
@@ -87,12 +90,6 @@ input {
 
 input:focus {
   outline: 2px solid #26c0ab;
-}
-
-.dollar-icon {
-  position: absolute;
-  top: 2px;
-  left: 15px;
 }
 
 .five-percent {
@@ -142,8 +139,26 @@ input:focus {
   color: #5e7a7d;
 }
 
+.people-wrap {
+  position: relative;
+}
+
+.person-icon {
+  position: absolute;
+  top: 10px;
+  left: 9px;
+}
+
 .tip-percentage-select {
-  margin: 2rem 0 2rem 0;
+  margin: 1.7rem 0 1.7rem 0;
+}
+
+.tip-percentage-select h2 {
+  font-size: .7rem;
+  color: #5e7a7d;
+  font-weight: bold;
+  -webkit-margin-after: 1rem;
+          margin-block-end: 1rem;
 }
 
 .btn {
@@ -153,41 +168,52 @@ input:focus {
       grid-template-columns: repeat(2, 1fr);
   -ms-grid-rows: (1fr)[3];
       grid-template-rows: repeat(3, 1fr);
-      grid-template-areas: "five-percent ten-percent" "fifteen-percent twenty-five-percent" "fifty-percent custom-btn";
+      grid-template-areas: "five-percent ten-percent"
+ "fifteen-percent twenty-five-percent"
+ "fifty-percent custom-btn";
   gap: 12px;
 }
 
 .btn-no {
   font-family: "Space Mono", sans-serif;
   font-size: 19px;
+  width: 100%;
+  height: 2.2rem;
   font-weight: bold;
   border: none;
   border-radius: 4px;
-  padding: 3px 0 3px 0;
   cursor: pointer;
 }
 
+.tip-value {
+  -webkit-margin-after: 2rem;
+          margin-block-end: 2rem;
+}
+
 button:active {
-  position: relative;
-  top: 1px;
+  -webkit-transform: translateY(2px);
+          transform: translateY(2px);
+}
+
+button:focus-visible {
+  outline: 2px solid #26c0ab;
 }
 
 .custom-btn {
-  padding-right: 13px;
   cursor: auto;
 }
 
-.persons {
-  margin-bottom: 1.8rem;
+.input-people {
   position: relative;
 }
 
-.persons span {
+.persons .span {
   font-size: .7rem;
   font-weight: bold;
   position: absolute;
-  top: -27px;
+  top: 5px;
   right: 3px;
+  font-family: "Space Mono", sans-serif;
   display: none;
 }
 
@@ -195,23 +221,13 @@ button:active {
   outline: 2px solid red;
 }
 
-.invalid span {
+.invalid + .span {
   display: block;
   color: red;
 }
 
 .invalid input {
   outline: 2px solid red;
-}
-
-.input-people {
-  position: relative;
-}
-
-.person-icon {
-  position: absolute;
-  top: 12px;
-  left: 15px;
 }
 
 .tip-amount {
@@ -229,6 +245,7 @@ button:active {
 
 .tip-amount h2 {
   color: #f4fafa;
+  font-size: .7rem;
 }
 
 .per-person {
@@ -278,58 +295,22 @@ button:active {
 }
 
 @media (min-width: 490px) {
-  .five-percent {
-    -ms-grid-row: 1;
-    -ms-grid-column: 1;
-    grid-area: five-percent;
-    background-color: #00494d;
-    color: white;
-  }
-  .ten-percent {
-    -ms-grid-row: 1;
-    -ms-grid-column: 2;
-    grid-area: ten-percent;
-    background-color: #00494d;
-    color: white;
-  }
-  .fifteen-percent {
-    -ms-grid-row: 1;
-    -ms-grid-column: 3;
-    grid-area: fifteen-percent;
-    background-color: #26c0ab;
-    color: #00494d;
-  }
-  .twenty-five-percent {
-    -ms-grid-row: 2;
-    -ms-grid-column: 1;
-    grid-area: twenty-five-percent;
-    background-color: #00494d;
-    color: white;
-  }
-  .fifty-percent {
-    -ms-grid-row: 2;
-    -ms-grid-column: 2;
-    grid-area: fifty-percent;
-    background-color: #00494d;
-    color: white;
-  }
-  .custom-btn {
-    -ms-grid-row: 2;
-    -ms-grid-column: 3;
-    grid-area: custom-btn;
-    color: #5e7a7d;
-  }
   .container {
+    max-width: 1000px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    width: 40rem;
+    gap: 8rem;
     border-radius: 1.5rem;
   }
   .tip-amount {
     width: 100%;
+  }
+  .tip-percentage-select {
+    margin: 2.3rem 0 2.3rem 0;
+  }
+  .tip-percentage-select h2 {
+    font-size: 1rem;
   }
   .btn {
     display: -ms-grid;
@@ -338,18 +319,32 @@ button:active {
         grid-template-columns: repeat(3, 1fr);
     -ms-grid-rows: (1fr)[2];
         grid-template-rows: repeat(2, 1fr);
-        grid-template-areas: "five-percent ten-percent fifteen-percent" "twenty-five-percent fifty-percent custom-btn";
-    gap: 12px;
+        grid-template-areas: "five-percent ten-percent fifteen-percent"
+ "twenty-five-percent fifty-percent custom-btn";
   }
   .btn-no {
+    font-size: 25px;
+    height: 2.5rem;
+  }
+  .sec-title {
+    font-size: 1rem;
+  }
+  .tip-amount h2 {
+    font-size: 1rem;
+  }
+  .per-person {
     font-size: 15px;
   }
-  .persons {
-    margin-bottom: 0;
+  .total-persons {
+    padding-top: 3rem;
+  }
+  .persons .span {
+    top: 1px;
+    font-size: 1rem;
   }
   .reset-btn {
-    -webkit-margin-before: 6rem;
-            margin-block-start: 6rem;
+    -webkit-margin-before: 8rem;
+            margin-block-start: 8rem;
   }
 }
 
