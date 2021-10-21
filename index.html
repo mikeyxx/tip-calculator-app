@@ -11,36 +11,40 @@
 </head>
 <body>
   <header>
-    <h1 class="sr-only">Splitter</h1>
-    <img src="/images/logo.svg" alt="" aria-hidden="true">
+    <img src="/images/logo.svg" alt="Splitter">
   </header>
   <main class="container">
+    <h1 class="sr-only">Frontendmentor tip calculator</h1>
     <section class="tip-value">
-      <div class="calculator">
-        <h2>Bill</h2>
-        <label class="input-bill">
-          <img src="/images/icon-dollar.svg" alt="" class="dollar-icon">
-        <input id="dollar-value" name="money" type="text" placeholder="0" class="bill-input">
-        </label>
+      <div class="bill-wrap">
+        <label class="input-bill sec-title" for="dollar-value">Bill</label>
+        <div class="input-wrap">
+            <img src="/images/icon-dollar.svg" alt="" class="dollar-icon">
+          <input id="dollar-value" name="money" type="number" placeholder="0" class="bill-input" aria-invalid="true">
+        </div>
       </div>
       
       <div class="tip-percentage-select">
         <h2>Select Tip %</h2>
-        <div class="btn tip-percentage">
-          <button class="five-percent btn-no">5%</button>
-          <button class="ten-percent btn-no">10%</button>
-          <button class="fifteen-percent btn-no">15%</button>
-          <button class="twenty-five-percent btn-no">25%</button>
-          <button class="fifty-percent btn-no">50%</button>
-          <input type="text" class="custom-btn btn-no" placeholder="Custom">
-        </div>
+        <ul class="btn tip-percentage">
+          <li><button aria-live="assertive" class="five-percent btn-no">5%</button></li>
+          <li><button aria-live="assertive" class="ten-percent btn-no">10%</button></li>
+          <li><button aria-live="assertive" class="fifteen-percent btn-no">15%</button></li>
+          <li><button aria-live="assertive" class="twenty-five-percent btn-no">25%</button></li>
+          <li><button aria-live="assertive" class="fifty-percent btn-no">50%</button></li>
+
+          <label class="sr-only" for="custom-value"></label>
+            <input type="number" id="custom-value" class="custom-btn btn-no" placeholder="Custom" aria-invalid="true">
+          </ul>    
       </div>
       <div class="persons">
-        <h2>Number of People</h2>
         <div class="input-people">
-          <img src="/images/icon-person.svg" alt="" class="person-icon">
-          <input type="text" id="people" name="number" placeholder="0" class="people-input" required>
-          <span class="span">Enter no. of people</span>
+          <label class="inp-title sec-title" for="people">Number of People</label>
+          <div class="people-wrap">
+          <img src="/images/icon-person.svg" alt="" aria-hidden="true" class="person-icon">
+            <input type="number" id="people" name="number" placeholder="0" class="people-input" required>
+          </div>
+          <p class="span">Enter no. of people</p>
         </div>
       </div>
     </section>
@@ -48,19 +52,19 @@
       <div class="amount-per-person">
         <div class="value-per-person">
           <h2>Tip Amount</h2>
-          <span class="per-person">/ person</span>
+          <p class="per-person">/ person</p>
         </div>
         <div class="value-calculator">
-          <span class="amount-calculator tip-person">&dollar;0.00</span>
+          <p class="amount-calculator tip-person">&dollar;0.00</p>
         </div>
       </div>
       <div class="total-persons">
         <div class="total-p-value">
           <h2>Total</h2>
-          <span class="per-person">/ person</span>
+          <small class="per-person">/ person</small>
         </div>
         <div class="value-calculator">
-          <span class="amount-calculator tip-total">&dollar;0.00</span>
+          <p class="amount-calculator tip-total">&dollar;0.00</p>
         </div>
       </div>
 
