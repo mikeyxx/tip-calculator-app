@@ -10,12 +10,10 @@ const custom = document.querySelector('.custom-btn');
 
 const person = document.querySelector('.tip-person');
 const T_people = document.querySelector('.tip-total');
-const peopleContainer = document.querySelector('.input-people');
-const inputContainer = document.querySelector('.input-bill');
+const peopleContainer = document.querySelector('.people-wrap');
+const inputContainer = document.querySelector('.input-wrap');
 
 const reset = document.querySelector('.reset-btn');
-
-let Regex = /^[0-9]/;
 
 let billValue = 0;
 let billAmount = function() {
@@ -40,20 +38,15 @@ let tipAmount = 0;
 let totalPerson = 0;
 
 function calculateTip(value) {
-    if (!peopleValue || Regex.test(peopleValue) == false) {
+    if (!peopleValue) {
         peopleContainer.classList.add('invalid');
     } else {
         peopleContainer.classList.remove('invalid');
     }
 
-    if (Regex.test(billValue) == false) {
-        inputContainer.classList.add('invalid');
-    } else {
-        inputContainer.classList.remove('invalid');
-    }
     tipAmount = (billValue * value) / peopleValue;
     tipAmount = Math.round(tipAmount)
-    console.log(tipAmount);
+    // console.log(tipAmount);
     person.textContent = `$${tipAmount}`;
 
     totalPerson = (billValue / peopleValue) + tipAmount;
@@ -87,9 +80,9 @@ custom.addEventListener('keyup', function() {
 reset.addEventListener('click', () => {
     person.textContent = `$0.00`;
     T_people.textContent = `$0.00`;
-    bill.value = null;
-    people.value = null;
-    custom.value = null;
+    bill.value = "";
+    people.value = "";
+    custom.value = "";
     peopleContainer.classList.remove('invalid');
 });
 
