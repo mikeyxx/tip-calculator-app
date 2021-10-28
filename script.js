@@ -15,41 +15,43 @@ const inputContainer = document.querySelector('.input-wrap');
 
 const reset = document.querySelector('.reset-btn');
 
-let billValue = 0;
-let billAmount = function() {
-    bill.addEventListener('keyup', function() {
-        billValue = bill.value;
-        return billValue
-    })
-}
-billValue = billAmount();
+// let billValue = 0;
+// let billAmount = function() {
+//     bill.addEventListener('keyup', function() {
+//         billValue = bill.value;
+//         return billValue
+//     })
+// }
+// billValue = billAmount();
 
-let peopleValue = 0;
-let peopleAmount = function() {
-    people.addEventListener('keyup', function() {
-        peopleValue = people.value;
-        return peopleValue
-    })
-}
-peopleValue = peopleAmount();
+// let peopleValue = 0;
+// let peopleAmount = function() {
+//     people.addEventListener('keyup', function() {
+//         peopleValue = people.value;
+//         return peopleValue
+//     })
+// }
+// peopleValue = peopleAmount();
 
 
-let tipAmount = 0;
-let totalPerson = 0;
+// let tipAmount = 0;
+// let totalPerson = 0;
 
 function calculateTip(value) {
+    let billValue = bill.value;
+    let peopleValue = people.value;
     if (!peopleValue) {
         peopleContainer.classList.add('invalid');
     } else {
         peopleContainer.classList.remove('invalid');
     }
 
-    tipAmount = (billValue * value) / peopleValue;
+    let tipAmount = (billValue * value) / peopleValue;
     tipAmount = Math.round(tipAmount)
     // console.log(tipAmount);
     person.textContent = `$${tipAmount}`;
 
-    totalPerson = (billValue / peopleValue) + tipAmount;
+    let totalPerson = (billValue / peopleValue) + tipAmount;
     totalPerson = Math.round(totalPerson);
     T_people.textContent = `$${totalPerson}`;
 }
